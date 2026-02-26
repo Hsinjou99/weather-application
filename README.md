@@ -10,7 +10,7 @@ A simple web application to get current weather information using WeatherAPI.
 ## Setup
 
 1. Get an API key from https://www.weatherapi.com
-2. In script.js, replace YOUR_API_KEY with the API key you just got
+2. In script.js, replace 'key' with the API key you just got
 3. Open index.html in a web browser
 
 ## Files
