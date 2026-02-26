@@ -45,3 +45,15 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+.weather-info {
+    margin-top: 20px;
+}
+
+.weather-info h2 {
+    color: #333;
+}
+
+.weather-info p {
+    margin: 5px 0;
+}
