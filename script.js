@@ -35,6 +35,19 @@ async function getWeather(city) {
 // Show matched city, temp, weather condition, humidity, wind
 function displayWeather(data) {
     const { location, current } = data;
+    const condition = current.condition.text.toLowerCase();
+
+    // Dynamic background
+    if (condition.includes('rain') || condition.includes('drizzle')) {
+        document.body.style.background = "linear-gradient(to bottom, #4facfe, #00f2fe)";
+    } else if (condition.includes('cloud') || condition.includes('overcast')) {
+        document.body.style.background = "linear-gradient(to bottom, #bdc3c7, #2c3e50)";
+    } else if (condition.includes('snow')) {
+        document.body.style.background = "linear-gradient(to bottom, #e6e9f0, #eef1f5)";
+    } else {
+        document.body.style.background = "linear-gradient(to bottom, #f6d365, #fda085)";
+    }
+
     weatherInfo.innerHTML = `
         <h2>${location.name}, ${location.country}</h2>
         <p>Temperature: ${current.temp_c}°C (${current.temp_f}°F)</p>
