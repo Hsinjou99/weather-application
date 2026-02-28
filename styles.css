@@ -57,3 +57,17 @@ button:hover {
 .weather-info p {
     margin: 5px 0;
 }
+
+#location-btn {
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#location-btn:hover {
+    background-color: #219150;
+}

@@ -1,7 +1,27 @@
-const apiKey = 'key'; // Replace with your key
+const apiKey = '9ad76ea3ba72479c8ef55046262802'; // Replace with your key
 const searchBtn = document.getElementById('search-btn');
 const cityInput = document.getElementById('city-input');
 const weatherInfo = document.getElementById('weather-info');
+const locationBtn = document.getElementById('location-btn');
+
+// event listener for location button
+locationBtn.addEventListener('click', () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+
+                getWeather(`${lat},${lon}`);
+            },
+            (error) => {
+                alert('Unable to retrieve your location. Please allow location access or enter a city name.');
+            }
+        );
+    } else {
+        alert('Geolocation is not supported by this browser. Please enter a city name.');
+    }
+});
 
 searchBtn.addEventListener('click', () => {
     const city = cityInput.value.trim();
@@ -26,6 +46,7 @@ async function getWeather(city) {
             throw new Error('City not found or API error');
         }
         const data = await response.json();
+
         displayWeather(data);
     } catch (error) {
         weatherInfo.innerHTML = `<p>Error: ${error.message}</p>`;
@@ -49,7 +70,8 @@ function displayWeather(data) {
     }
 
     weatherInfo.innerHTML = `
-        <h2>${location.name}, ${location.country}</h2>
+        <h2>${location.name}, ${location.region}</h2>
+        <h3>${location.country}</h3>
         <p>Temperature: ${current.temp_c}°C (${current.temp_f}°F)</p>
         <p>Condition: ${current.condition.text}</p>
         <p>Humidity: ${current.humidity}%</p>
