@@ -1,4 +1,4 @@
-const apiKey = '9ad76ea3ba72479c8ef55046262802'; // Replace with your key
+const apiKey = 'key'; // Replace with your key
 const searchBtn = document.getElementById('search-btn');
 const cityInput = document.getElementById('city-input');
 const weatherInfo = document.getElementById('weather-info');
