@@ -12,6 +12,13 @@ searchBtn.addEventListener('click', () => {
     }
 });
 
+// event listener for enter key
+cityInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        searchBtn.click();
+    }
+});
+
 async function getWeather(city) {
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);
